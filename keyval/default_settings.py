@@ -84,7 +84,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'keyval.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(PATH, 'core/templates'),
+    os.path.join(PATH, 'templates'),
 )
 
 INSTALLED_APPS = (

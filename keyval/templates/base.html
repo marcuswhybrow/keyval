@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block page_title %}KeyVal{% endblock %}</title>
+        
+        {% block page_head %}{% endblock %}
+    </head>
+    
+    <body>
+        <div class="header-wrapper">
+            <div class="header">
+                <div class="logo">
+                    KeyVal
+                </div> <!-- END .logo -->
+                
+                <ul class="global-nav">
+                    <li>Home</li>
+                    <li>Account</li>
+                    <li>API</li>
+                </ul> <!-- END .global-nav -->
+            </div> <!-- END .header -->
+        </div> <!-- END .header-wrapper -->
+        
+        <div class="content-wrapper">
+            <section class="content">
+                {% block page_content %}
+                    
+                {% endblock %}
+            </section> <!-- END .content -->
+        </div> <!-- END .content-wrapper -->
+    </body>
+</html>
