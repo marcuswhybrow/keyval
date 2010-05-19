@@ -1,2 +1,6 @@
 # Ignore the local_settings.py file
-local_settings.py
+keyval/local_settings.py
+keyval/dev.db
+
+# Ignore compiled python files
+*.pyc

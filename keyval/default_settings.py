@@ -1,8 +1,5 @@
 # Django settings for keyval project.
 
-import os
-PATH = os.path.abspath(os.path.dirname(__file__))
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
