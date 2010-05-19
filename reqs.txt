@@ -1,0 +1,8 @@
+# A requirements file used by `pip` to get and install python eggs
+# These requirements are for the project itself.
+# For helpfull developer requirements see `reqs-dev.txt`
+
+Django==1.2
+
+# Include things which aid with development but are not requirements
+-r reqs-dev.txt

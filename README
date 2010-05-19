@@ -1,1 +1,28 @@
+
+KeyVal
+======
+
 Outsources storage of simple key value pairs, accessible via a simplistic API
+
+
+Installation
+============
+
+First get the source code from git:
+
+    `git clone git@github.com:marcuswhybrow/KeyVal.git`
+    
+Dependencies
+============
+
+Install PIP
+-----------
+
+Install pip using the command:
+
+    `easy_install pip`
+
+Install the project dependencies using pip, make sure you are at the root of the KeyVal
+project where 'reqs.txt' is located, and enter the command:
+
+    `pip -r reqs.txt`

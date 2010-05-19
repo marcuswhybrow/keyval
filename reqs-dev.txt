@@ -1,0 +1,6 @@
+# This is a requirements file for 'pip'
+# This file contains requirements to aid development and are not
+# required to install KeyVal.
+# For project dependencies see 'reqs.txt'
+
+django-debug-toolbar==0.8.3
