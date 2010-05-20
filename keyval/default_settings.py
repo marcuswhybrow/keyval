@@ -6,6 +6,10 @@ PATH = os.path.abspath(os.path.dirname(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+# If you want Django to server static media such as css files and images
+# set SERVE_STATIC to True
+SERVE_STATIC = True
+
 ADMINS = (
     ('Marcus Whybrow', 'keyval@marcuswhybrow.net'),
 )
@@ -57,6 +61,14 @@ MEDIA_ROOT = os.path.join(PATH, 'media')
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/media/'
 
+# Absolute path to the directory that holds static media.
+STATIC_ROOT = os.path.join(PATH, 'static')
+
+# URL that handles the static media served from STATIC_ROOT. Make sure to
+# use a trailing slash if there is a path component (optional in other 
+# cases).
+STATIC_URL = '/static/'
+
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -80,6 +92,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.contrib.messages.context_processors.messages',
+    # Custom context processors
+    'keyval.core.context_processors.static_url',
 )
 
 MIDDLEWARE_CLASSES = (
