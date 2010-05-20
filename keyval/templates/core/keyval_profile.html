@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+            <h1>KeyVal</h1>
+            <table border="0">
+                <tr>
+                    <td>Username</td>
+                    <td>{{ user_profile.username }}</td>
+                </tr>
+                
+                <tr>
+                    <td>Key</td>
+                    <td>{{ keyval.key }}</td>
+                </tr>
+                
+                <tr>
+                    <td>Value</td>
+                    <td>{{ keyval.value }}</td>
+                </tr>
+            </table>
+            
+            <p>
+                This page when viewed in a browser will display lovely information, however when accessed programmatically it will return only the value of the keyval.
+            </p>
+            
+            <p>
+                <a href="{% url user_profile user_profile.username %}">&#x2190; back</a>
+            </p>
+{% endblock %}

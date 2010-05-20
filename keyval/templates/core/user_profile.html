@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+            <h1>{{ user_profile.full_name|default:user_profile.username }}</h1>
+            
+            <h2>Key Value Pairs:</h2>
+            
+            {% if user_profile.keyvals %}
+            <ul>
+                {% for keyval in user_profile.keyvals.all %}
+                <li><a href="{{ keyval.get_absolute_url }}">{{ keyval.key }}</a> => {{ keyval.value }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+{% endblock %}

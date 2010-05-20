@@ -13,5 +13,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     
-    url(r'^$', direct_to_template, {'template': 'core/index.html'})
+    url(r'^$', direct_to_template, {'template': 'core/index.html'}, name='index'),
+    url(r'^account/$', direct_to_template, {'template': 'core/account.html'}, name='account'),
+    url(r'^api/$', direct_to_template, {'template': 'core/api.html'}, name='api'),
+
+    url(r'^(?P<username>[^/]+)/(?P<key>[^/]+)/$', 'keyval.core.views.keyval_profile', name='keyval_profile'),
+    url(r'^(?P<username>[^/]+)/$', 'keyval.core.views.user_profile', name='user_profile'),
 )
