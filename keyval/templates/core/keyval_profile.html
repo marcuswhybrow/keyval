@@ -1,23 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-            <h1>KeyVal : <span class="alt">{{ keyval.key }}</span></h1>
-            <table border="0">
-                <tr>
-                    <td>Username</td>
-                    <td>{{ user_profile.username }}</td>
-                </tr>
-                
-                <tr>
-                    <td>Key</td>
-                    <td>{{ keyval.key }}</td>
-                </tr>
-                
-                <tr>
-                    <td>Value</td>
-                    <td>{{ keyval.value }}</td>
-                </tr>
-            </table>
+            <h1 class="prepend-top">{{ keyval.key }} &#x2192; <span class="alt">{{ keyval.value }}</span></h1>
             
             <p>
                 This page when viewed in a browser will display lovely information, however when accessed programmatically it will return only the value of the keyval.

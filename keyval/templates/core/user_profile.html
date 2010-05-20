@@ -1,19 +1,15 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-            <h1>{{ user_profile.get_full_name|default:user_profile.username }}</h1>
-            
-            <p>
-                {{ user_profile.first_name|default:user_profile.username }} has {{ user_profile.keyvals.all|length }} keyvals.
-            </p>
-            
-            <h2>Key Value Pairs:</h2>
+            <h1 class="prepend-top">{{ user_profile.get_full_name|default:user_profile.username }}</h1>
             
             {% if user_profile.keyvals %}
-            <ul class="keyval-list">
-                {% for keyval in user_profile.keyvals.all %}
-                <li><a class="button" href="{{ keyval.get_absolute_url }}">{{ keyval.key }} => {{ keyval.value }}</a></li>
-                {% endfor %}
-            </ul>
+            <nav>
+                <ul class="keyval-list">
+                    {% for keyval in user_profile.keyvals.all %}
+                    <li><a class="button" href="{{ keyval.get_absolute_url }}">{{ keyval.key }} &#x2192; {{ keyval.value }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
             {% endif %}
 {% endblock %}

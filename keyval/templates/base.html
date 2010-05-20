@@ -18,16 +18,20 @@
     <body>
         <div class="header-wrapper">
             <div class="header container">
-                <div class="logo">
+                <div class="logo span-4">
                     KeyVal
                 </div> <!-- END .logo -->
                 
-                <ul class="global-nav">
-                    <li><a href="{% url index %}">Home</a></li>
-                    <li><a href="{% url account %}">Account</a></li>
-                    <li><a href="{% url api %}">API</a></li>
-                </ul> <!-- END .global-nav -->
-            </div> <!-- END .header -->
+                <div class="userbox span-10">
+                    <nav>
+                        <ul>
+                            <li><a class="button" href="{% url index %}">Home</a></li>
+                            <li><a class="button" href="{% url account %}">Account</a></li>
+                            <li><a class="button" href="{% url api %}">API</a></li>
+                        </ul> <!-- END .global-nav -->
+                    </nav>
+                </div> <!-- END .userbox -->
+            </div>
         </div> <!-- END .header-wrapper -->
         
         <div class="content-wrapper">

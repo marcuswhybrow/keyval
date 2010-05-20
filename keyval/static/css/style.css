@@ -1,1 +1,9 @@
+body                                { font-family: Palatino,Georgia,"Times New Roman",Times,serif; font-size: 18px; }
+
 ul.keyval-list                      { list-style: none; }
+
+.header > .logo                     { padding-top: 0.3em; font-size: 2em; }
+.header > .userbox                  {  }
+
+nav > ul                            { list-style: none; padding: 0; margin: 0; }
+nav > ul li                         { display: inline; }
