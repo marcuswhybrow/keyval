@@ -14,8 +14,17 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     
     url(r'^$', direct_to_template, {'template': 'core/index.html'}, name='index'),
-    url(r'^account/$', direct_to_template, {'template': 'core/account.html'}, name='account'),
     url(r'^api/$', direct_to_template, {'template': 'core/api.html'}, name='api'),
+    
+    url(r'^account/$', 'keyval.core.views.account', name='account'),
+    
+    url(r'^login/$', 'django.contrib.auth.views.login', { 
+        'template_name': 'core/login.html' 
+    }, name='login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {
+        'template_name': 'core/logout.html', 
+        'next_page': '/' 
+    }, name='logout'),
 )
 
 from django.conf import settings

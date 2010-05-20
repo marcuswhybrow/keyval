@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-            <h1 class="prepend-top">Your Account Page</h1>
+            <h1 class="prepend-top">Account</h1>
             
             <p>
-                Your details (if you are logged in), or a link to login if not.
+                You are logged in as {{ user.get_full_name|default:user.username }}, if this is not you please <a href="{% url logout %}">logout</a>.
             </p>
 {% endblock %}

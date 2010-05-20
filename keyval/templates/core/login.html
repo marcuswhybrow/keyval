@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <h1 class="prepend-top">Login</h1>
+    
+    <form action="{% url login %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        
+        <p>
+            <label for="id_username">Username:</label>
+            <br>
+            <input id="id_username" class="text" type="text" maxlength="30" name="username">
+        </p>
+        
+        <p>
+            <label for="id_password">Password:</label>
+            <br>
+            <input id="id_password" class="text" type="password" name="password">
+        </p>
+        
+        <p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </p>
+    </form>
+{% endblock %}

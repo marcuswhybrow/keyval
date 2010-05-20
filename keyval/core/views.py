@@ -33,3 +33,10 @@ def keyval_profile(request, username, key):
         'user_profile': user,
         'keyval': keyval,
     }, context_instance=RequestContext(request))
+
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def account(request):
+    """Displays information about the users account"""
+    return render_to_response('core/account.html', context_instance=RequestContext(request))

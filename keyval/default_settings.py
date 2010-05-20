@@ -120,3 +120,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'keyval.core'
 )
+
+# Login directives:
+# The URL to direct unauthenticated users to
+LOGIN_URL = '/login/'
+
+# The URL redirected to after a successful login
+LOGIN_REDIRECT_URL = '/account/'
