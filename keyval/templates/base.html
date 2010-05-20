@@ -6,12 +6,18 @@
         <title>{% block page_title %}KeyVal{% endblock %}</title>
         
         <!--[if lte IE 8]><script>(function(){var e="abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i]);}}());</script><![endif]-->
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/bluprint/print.css" type="text/css" media="print">
+        <!--[if lt IE 8]><link rel="stylesheet" href="{{ MEDIA_URL }}/css/blueprint/ie/css" type="text/css" media="screen, projection"><![endif]-->
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/plugins/buttons/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" type="text/css" media="screen, projection">
         {% block page_head %}{% endblock %}
     </head>
     
     <body>
         <div class="header-wrapper">
-            <div class="header">
+            <div class="header container">
                 <div class="logo">
                     KeyVal
                 </div> <!-- END .logo -->
@@ -25,7 +31,7 @@
         </div> <!-- END .header-wrapper -->
         
         <div class="content-wrapper">
-            <section class="content">
+            <section class="content container">
                 {% block page_content %}
                     
                 {% endblock %}
