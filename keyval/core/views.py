@@ -40,3 +40,13 @@ from django.contrib.auth.decorators import login_required
 def account(request):
     """Displays information about the users account"""
     return render_to_response('core/account.html', context_instance=RequestContext(request))
+
+def index(request):
+    """Displays standard welcome page, or user home page if logged in"""
+    
+    if request.user.is_authenticated():
+        template = 'core/authenticated.html'
+    else:
+        template = 'core/index.html'
+    
+    return render_to_response(template, context_instance=RequestContext(request))

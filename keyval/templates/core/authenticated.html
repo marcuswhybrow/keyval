@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <h1 class="prepend-top">Hi, {{ user.username }}</h1>
+    
+    {% if user.keyvals %}
+    <nav>
+        <ul>
+            {% for keyval in user.keyvals.all %}
+            <li><a class="button" href="{{ keyval.get_absolute_url }}">{{ keyval.key }} &#x2192; {{ keyval.value }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+{% endblock %}

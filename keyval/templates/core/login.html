@@ -3,6 +3,12 @@
 {% block page_content %}
     <h1 class="prepend-top">Login</h1>
     
+    {% if form.errors %}
+    <p>
+        <span class="error">Your username and password didn't match. Please try again.</span>
+    </p>
+    {% endif %}
+    
     <form action="{% url login %}" method="post" accept-charset="utf-8">
         {% csrf_token %}
         

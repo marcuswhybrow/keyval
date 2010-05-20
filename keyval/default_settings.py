@@ -126,4 +126,4 @@ INSTALLED_APPS = (
 LOGIN_URL = '/login/'
 
 # The URL redirected to after a successful login
-LOGIN_REDIRECT_URL = '/account/'
+LOGIN_REDIRECT_URL = '/'
