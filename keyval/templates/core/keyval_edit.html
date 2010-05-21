@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <h1 class="prepend-top"><a href="{% url user_profile user.username %}">{{ user.username }}</a> / <a href="{{ keyval.get_absolute_url }}">{{ keyval.key }}</a> / <span class="alt">edit</span></h1>
+    
+    <form action="" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        
+        <p>
+            <label for="id_value">Value:</label>
+            <br>
+            <input id="id_value" class="text" type="text" name="value" value="{{ keyval.value }}">
+        </p>
+        
+        <p><input type="submit" value="Update"></p>
+    </form>
+{% endblock %}

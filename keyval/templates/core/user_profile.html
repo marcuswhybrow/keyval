@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-            <h1 class="prepend-top">{{ user_profile.get_full_name|default:user_profile.username }}</h1>
+            <h1 class="prepend-top">{{ user_profile.username }}</h1>
             
             {% if user_profile.keyvals %}
             <nav>

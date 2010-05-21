@@ -25,7 +25,7 @@ def keyval_profile(request, username, key):
         raise Http404
     
     try:
-        keyval = KeyVal.objects.get(key=key)
+        keyval = KeyVal.objects.get(key=key, user=user)
     except KeyVal.DoesNotExist:
         raise Http404
     
@@ -35,10 +35,53 @@ def keyval_profile(request, username, key):
     }, context_instance=RequestContext(request))
 
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+@login_required
+def keyval_edit(request, username, key):
+    """Allows editing of keyvals if the logged in user owns the keyval"""
+    
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise  Http404
+    
+    try:
+        keyval = KeyVal.objects.get(key=key, user=user)
+    except KeyVal.DoesNotExist:
+        raise Http404
+    
+    if user != request.user:
+        raise Http404
+    
+    if request.method == 'POST':
+        value = request.POST.get('value', keyval.value)
+        keyval.value = value
+        keyval.save()
+        
+        messages.success(request, 'Your keyval information has been updated.')
+    
+    return render_to_response('core/keyval_edit.html', {
+        'keyval': keyval,
+    }, context_instance=RequestContext(request))
+        
 
 @login_required
 def account(request):
     """Displays information about the users account"""
+    
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name', request.user.first_name)
+        last_name = request.POST.get('last_name', request.user.last_name)
+        email = request.POST.get('email', request.user.email)
+        
+        request.user.first_name = first_name
+        request.user.last_name = last_name
+        request.user.email = email
+        request.user.save()
+        
+        messages.success(request, 'Your account information has been updated.')
+    
     return render_to_response('core/account.html', context_instance=RequestContext(request))
 
 def index(request):

@@ -36,6 +36,17 @@
         
         <div class="content-wrapper">
             <section class="content container">
+                
+                {% if messages %}
+                <div class="message-box">
+                    <ul>
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags}}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                
                 {% block page_content %}
                     
                 {% endblock %}

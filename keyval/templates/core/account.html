@@ -6,4 +6,28 @@
             <p>
                 You are logged in as {{ user.get_full_name|default:user.username }}, if this is not you please <a href="{% url logout %}">logout</a>.
             </p>
+            
+            <form action="" method="post" accept-charset="utf-8">
+                {% csrf_token %}
+                
+                <p>
+                    <label for="id_first_name">First Name:</label>
+                    <br>
+                    <input class="text" type="text" name="first_name" value="{{ user.first_name }}" id="id_first_name">
+                </p>
+                
+                <p>
+                    <label for="id_last_name">Last Name:</label>
+                    <br>
+                    <input class="text" type="text" name="last_name" value="{{ user.last_name }}" id="id_last_name">
+                </p>
+                
+                <p>
+                    <label for="id_email">Email:</label>
+                    <br>
+                    <input class="text" type="text" name="email" value="{{ user.email }}" id="id_email">
+                </p>
+
+                <p><input type="submit" value="Update"></p>
+            </form>
 {% endblock %}

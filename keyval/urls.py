@@ -37,6 +37,7 @@ if settings.SERVE_STATIC:
 
 # The username matching must be performed last as the expressions are very general.
 urlpatterns += patterns('',
+    url(r'^(?P<username>[^/]+)/(?P<key>[^/]+)/edit/$', 'keyval.core.views.keyval_edit', name='keyval_edit'),
     url(r'^(?P<username>[^/]+)/(?P<key>[^/]+)/$', 'keyval.core.views.keyval_profile', name='keyval_profile'),
     url(r'^(?P<username>[^/]+)/$', 'keyval.core.views.user_profile', name='user_profile'),
 )

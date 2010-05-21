@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-            <h1 class="prepend-top">{{ keyval.key }} &#x2192; <span class="alt">{{ keyval.value }}</span></h1>
+            <h1 class="prepend-top"> <a href="{% url user_profile user_profile.username %}">{{ user_profile.username }}</a> / {{ keyval.key }} </h1>
+            
+            <p>
+                <span class="alt">{{ keyval.value }}</span>
+            </p>
+            
+            <br>
             
             <p>
                 This page when viewed in a browser will display lovely information, however when accessed programmatically it will return only the value of the keyval.
@@ -10,4 +16,8 @@
             <a class="button" href="{% url user_profile user_profile.username %}">
                 &#x2190; back
             </a>
+            
+            {% if user.is_authenticated and user == keyval.user %}
+            <a class="button" href="{% url keyval_edit user_profile.username keyval.key %}">Edit</a>
+            {% endif %}
 {% endblock %}
