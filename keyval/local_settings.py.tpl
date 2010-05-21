@@ -1,3 +1,5 @@
+from default_settings import *
+
 # Specify a database
 DATABASES = {
     'default': {
