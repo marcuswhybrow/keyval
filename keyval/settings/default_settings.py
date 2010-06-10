@@ -118,7 +118,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     # 'django.contrib.admindocs',
-    'keyval.core'
+    'keyval.apps.core',
 )
 
 # Login directives:
