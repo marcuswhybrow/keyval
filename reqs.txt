@@ -3,6 +3,7 @@
 # For helpfull developer requirements see `reqs-dev.txt`
 
 Django==1.2
+hg+http://bitbucket.org/jespern/django-piston/
 
 # Include things which aid with development but are not requirements
 -r reqs-dev.txt
