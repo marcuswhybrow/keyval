@@ -13,9 +13,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     
-    url(r'^$', 'keyval.core.views.index', name='index'),
-    url(r'^api/$', direct_to_template, {'template': 'core/api.html'}, name='api'),
-    url(r'^account/$', 'keyval.core.views.account', name='account'),
+    url(r'^$', 'keyval.apps.core.views.index', name='index'),
+    (r'^api/', include('keyval.apps.api.urls')),
+    url(r'^account/$', 'keyval.apps.core.views.account', name='account'),
     
     url(r'^login/$', 'django.contrib.auth.views.login', { 
         'template_name': 'core/login.html' 
@@ -37,7 +37,7 @@ if settings.SERVE_STATIC:
 
 # The username matching must be performed last as the expressions are very general.
 urlpatterns += patterns('',
-    url(r'^(?P<username>[^/]+)/(?P<key>[^/]+)/edit/$', 'keyval.core.views.keyval_edit', name='keyval_edit'),
-    url(r'^(?P<username>[^/]+)/(?P<key>[^/]+)/$', 'keyval.core.views.keyval_profile', name='keyval_profile'),
-    url(r'^(?P<username>[^/]+)/$', 'keyval.core.views.user_profile', name='user_profile'),
+    url(r'^(?P<username>[^/]+)/(?P<key>[^/]+)/edit/$', 'keyval.apps.core.views.keyval_edit', name='keyval_edit'),
+    url(r'^(?P<username>[^/]+)/(?P<key>[^/]+)/$', 'keyval.apps.core.views.keyval_profile', name='keyval_profile'),
+    url(r'^(?P<username>[^/]+)/$', 'keyval.apps.core.views.user_profile', name='user_profile'),
 )
